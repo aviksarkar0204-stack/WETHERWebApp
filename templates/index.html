@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🌤️ Weather App</h1>
+        
+        <div class="search-section">
+            <label class="city-label">Enter city name:</label>
+            <div class="search-box">
+                <input type="text" id="cityInput" placeholder="e.g., London, Tokyo, New York" />
+                <button id="searchBtn" onclick="getWeather()">Get Weather</button>
+            </div>
+        </div>
+
+        <div id="loadingSpinner" class="loading-spinner" style="display: none;">
+            <div class="spinner"></div>
+            <p>Loading weather data...</p>
+        </div>
+
+        <div id="errorMessage" class="error-message" style="display: none;"></div>
+
+        <div id="weatherDisplay" class="weather-display" style="display: none;">
+            <div class="main-weather">
+                <div class="temp-emoji">
+                    <div class="temperature" id="temperature"></div>
+                    <div class="emoji" id="emoji"></div>
+                </div>
+                <div class="description" id="description"></div>
+                <div class="city-name" id="cityName"></div>
+            </div>
+
+            <div class="weather-grid">
+                <div class="weather-card" id="aqiCard">
+                    <div class="card-label">AQI</div>
+                    <div class="card-value" id="aqi">N/A</div>
+                </div>
+
+                <div class="weather-card">
+                    <div class="card-label">Humidity</div>
+                    <div class="card-value" id="humidity"></div>
+                </div>
+
+                <div class="weather-card">
+                    <div class="card-label">Feels Like</div>
+                    <div class="card-value" id="feelsLike"></div>
+                </div>
+
+                <div class="weather-card">
+                    <div class="card-label">Sunrise</div>
+                    <div class="card-value" id="sunrise"></div>
+                </div>
+
+                <div class="weather-card">
+                    <div class="card-label">Chance of Rain</div>
+                    <div class="card-value" id="precipitation"></div>
+                </div>
+
+                <div class="weather-card">
+                    <div class="card-label">Sunset</div>
+                    <div class="card-value" id="sunset"></div>
+                </div>
+            </div>
+
+            <div class="local-time" id="localTime"></div>
+        </div>
+    </div>
+
+    <script>
+        // Allow Enter key to search
+        document.getElementById('cityInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                getWeather();
+            }
+        });
+
+        async function getWeather() {
+            const city = document.getElementById('cityInput').value.trim();
+            
+            if (!city) {
+                showError('Please enter a city name');
+                return;
+            }
+
+            // Show loading, hide other elements
+            document.getElementById('loadingSpinner').style.display = 'block';
+            document.getElementById('weatherDisplay').style.display = 'none';
+            document.getElementById('errorMessage').style.display = 'none';
+
+            try {
+                const response = await fetch('/get_weather', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ city: city })
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.error || 'Failed to fetch weather data');
+                }
+
+                displayWeather(data);
+            } catch (error) {
+                showError(error.message);
+            } finally {
+                document.getElementById('loadingSpinner').style.display = 'none';
+            }
+        }
+
+        function displayWeather(data) {
+            // Update main weather info
+            document.getElementById('temperature').textContent = `${data.temperature}°C`;
+            document.getElementById('emoji').textContent = data.emoji;
+            document.getElementById('description').textContent = data.description;
+            document.getElementById('cityName').textContent = `${data.city}, ${data.country}`;
+
+            // Update weather cards
+            document.getElementById('humidity').textContent = `${data.humidity}%`;
+            document.getElementById('feelsLike').textContent = `${data.feels_like}°C`;
+            document.getElementById('sunrise').textContent = data.sunrise;
+            document.getElementById('sunset').textContent = data.sunset;
+            document.getElementById('precipitation').textContent = data.precip_prob !== null ? `${data.precip_prob}%` : 'N/A';
+            
+            // Update AQI with color coding
+            const aqiCard = document.getElementById('aqiCard');
+            const aqiElement = document.getElementById('aqi');
+            
+            if (data.aqi_level !== null) {
+                aqiElement.textContent = data.aqi_text;
+                
+                const aqiColors = {
+                    1: '#b6e3b6',  // Good - green
+                    2: '#fff4b3',  // Fair - yellow
+                    3: '#ffd699',  // Moderate - orange
+                    4: '#ff9999',  // Poor - red
+                    5: '#d1b3ff'   // Very Poor - purple
+                };
+                
+                aqiCard.style.backgroundColor = aqiColors[data.aqi_level] || '#f0f0f0';
+            } else {
+                aqiElement.textContent = 'N/A';
+                aqiCard.style.backgroundColor = '#f0f0f0';
+            }
+
+            // Update local time
+            document.getElementById('localTime').textContent = `Local time: ${data.local_time}`;
+
+            // Show weather display
+            document.getElementById('weatherDisplay').style.display = 'block';
+            document.getElementById('errorMessage').style.display = 'none';
+        }
+
+        function showError(message) {
+            const errorElement = document.getElementById('errorMessage');
+            errorElement.textContent = message;
+            errorElement.style.display = 'block';
+            document.getElementById('weatherDisplay').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
