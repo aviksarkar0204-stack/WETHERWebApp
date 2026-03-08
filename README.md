@@ -1,4 +1,4 @@
-# 🌤️ Weather WebApp
+# Weather WebApp
 
 A real-time weather web application built with Python (Flask) and OpenWeatherMap API.  
 Simply **enter any city name** — Weather WebApp will show live temperature, humidity, AQI, sunrise/sunset, and much more!
