@@ -3,6 +3,12 @@
 A real-time weather web application built with Python (Flask) and OpenWeatherMap API.  
 Simply **enter any city name** — Weather WebApp will show live temperature, humidity, AQI, sunrise/sunset, and much more!
 
+![Python](https://img.shields.io/badge/Python-3.8+-blue?style=flat-square&logo=python)
+![Flask](https://img.shields.io/badge/Flask-3.0.0-black?style=flat-square&logo=flask)
+![OpenWeatherMap](https://img.shields.io/badge/OpenWeatherMap-API-orange?style=flat-square)
+
+[![Live Demo](https://img.shields.io/badge/🌤️%20Live%20Demo-Render-46E3B7?style=for-the-badge&logo=render)](https://wetherwebapp-1.onrender.com)
+
 ---
 
 ## 📸 Demo
@@ -34,6 +40,8 @@ Simply **enter any city name** — Weather WebApp will show live temperature, hu
 | HTML/CSS | Frontend UI |
 | JavaScript | Async API calls & dynamic rendering |
 | OpenWeatherMap API | Live weather, forecast & AQI data |
+| Gunicorn | Production WSGI server |
+| Render | Cloud deployment platform |
 
 ---
 
@@ -135,6 +143,7 @@ http://127.0.0.1:5000
 ```
 flask
 requests
+gunicorn
 ```
 
 ---
@@ -153,5 +162,5 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 👤 Author
 
-**aviksarkar0204-stack**  
+**Avik Sarkar**  
 GitHub: [@aviksarkar0204-stack](https://github.com/aviksarkar0204-stack)
