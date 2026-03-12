@@ -7,7 +7,7 @@ Simply **enter any city name** — Weather WebApp will show live temperature, hu
 ![Flask](https://img.shields.io/badge/Flask-3.0.0-black?style=flat-square&logo=flask)
 ![OpenWeatherMap](https://img.shields.io/badge/OpenWeatherMap-API-orange?style=flat-square)
 
-[![Live Demo]([![Live Demo](https://img.shields.io/badge/🌤️%20Live%20Demo-HuggingFace-FFD21E?style=for-the-badge&logo=huggingface)](https://huggingface.co/spaces/Avik128/WETHERWebApp))](https://wetherwebapp-1.onrender.com)
+[![Live Demo](https://img.shields.io/badge/🌤️%20Live%20Demo-HuggingFace-FFD21E?style=for-the-badge&logo=huggingface)](https://huggingface.co/spaces/Avik128/WETHERWebApp)
 
 ---
 
@@ -41,17 +41,18 @@ Simply **enter any city name** — Weather WebApp will show live temperature, hu
 | JavaScript | Async API calls & dynamic rendering |
 | OpenWeatherMap API | Live weather, forecast & AQI data |
 | Gunicorn | Production WSGI server |
-| Render | Cloud deployment platform |
+| Docker | Containerization |
+| Hugging Face Spaces | Cloud deployment platform |
 
 ---
 
 ## 📁 Project Structure
-
 ```
 WETHERWebApp/
 │
 ├── app.py                  # Flask backend — routes & API logic
 ├── requirements.txt        # Python dependencies
+├── Dockerfile              # Docker configuration
 ├── README.md               # Project documentation
 │
 ├── templates/
@@ -86,14 +87,13 @@ API_KEY = "your_api_key_here"
 ---
 
 ## ▶️ How to Run
-
 ```bash
 python app.py
 ```
 
 Then open your browser and go to:
 ```
-http://127.0.0.1:5000
+http://127.0.0.1:7860
 ```
 
 ---
@@ -139,7 +139,6 @@ http://127.0.0.1:5000
 ---
 
 ## 📋 Requirements
-
 ```
 flask
 requests
