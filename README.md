@@ -7,7 +7,7 @@ Simply **enter any city name** — Weather WebApp will show live temperature, hu
 ![Flask](https://img.shields.io/badge/Flask-3.0.0-black?style=flat-square&logo=flask)
 ![OpenWeatherMap](https://img.shields.io/badge/OpenWeatherMap-API-orange?style=flat-square)
 
-[![Live Demo](https://img.shields.io/badge/🌤️%20Live%20Demo-Render-46E3B7?style=for-the-badge&logo=render)](https://wetherwebapp-1.onrender.com)
+[![Live Demo]([![Live Demo](https://img.shields.io/badge/🌤️%20Live%20Demo-HuggingFace-FFD21E?style=for-the-badge&logo=huggingface)](https://huggingface.co/spaces/Avik128/WETHERWebApp))](https://wetherwebapp-1.onrender.com)
 
 ---
 
