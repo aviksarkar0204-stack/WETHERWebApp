@@ -24,7 +24,7 @@ Simply **enter any city name** — Weather WebApp will show live temperature, hu
 - 🌧️ **Chance of Rain** — Precipitation probability from forecast data
 - 💧 **Humidity** — Real-time humidity percentage
 - 🌫️ **Air Quality Index (AQI)** — Color-coded AQI with levels (Good to Very Poor)
-- 🌅 **Sunrise & Sunset** — Local sunrise and sunset times
+- 🌅 **Sunrise & Sunset** — Local sunrise and sunset time
 - 🕐 **Local Time** — Displays the current local time of the searched city
 - 😊 **Weather Emojis** — Dynamic emojis based on weather conditions
 - 📱 **Responsive Design** — Works on mobile, tablet, and desktop
