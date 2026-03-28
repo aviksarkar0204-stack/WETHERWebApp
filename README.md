@@ -11,11 +11,16 @@ Simply **enter any city name** — Weather WebApp will show live temperature, hu
 
 ---
 
-## 📸 Demo
+## 🔗 Part of the WETHER Project Series
 
-> Type any city name → Weather WebApp fetches and displays live weather data instantly.
+WETHERWebApp is the **real-time weather** component of the WETHER project series. For **7-day forecasting** powered by Facebook Prophet, check out the companion app:
 
----
+[![WETHERCast](https://img.shields.io/badge/WETHERCast-View%20Repo-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/aviksarkar0204-stack/WETHERCast)
+[![WETHERCast Demo](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://weathercast-du7a9nnhmxyrxjvzgyrtvm.streamlit.app)
+
+> WETHERCast is embedded directly inside this app — scroll down after searching a city to see the 7-day forecast, rain probability, and hourly breakdown powered by ML.
+
+
 
 ## ✨ Features
 
@@ -27,6 +32,7 @@ Simply **enter any city name** — Weather WebApp will show live temperature, hu
 - 🌅 **Sunrise & Sunset** — Local sunrise and sunset time
 - 🕐 **Local Time** — Displays the current local time of the searched city
 - 😊 **Weather Emojis** — Dynamic emojis based on weather conditions
+- 📈 **7-Day Forecast** — Embedded WETHERCast ML forecasting app (Facebook Prophet)
 - 📱 **Responsive Design** — Works on mobile, tablet, and desktop
 
 ---
@@ -46,6 +52,27 @@ Simply **enter any city name** — Weather WebApp will show live temperature, hu
 
 ---
 
+## 🔗 Related Project — WETHERCast
+
+WETHERCast is the ML-powered forecasting extension of this app, built with:
+
+| Layer | Technology |
+|---|---|
+| Forecasting | Facebook Prophet |
+| Weather Data | Open-Meteo API (free, no auth) |
+| Frontend | Streamlit + Plotly |
+| Geocoding | Open-Meteo Geocoding API |
+
+It provides:
+- 📈 **7-Day Temperature Forecast** with confidence intervals
+- 🌧️ **Rain Probability** for the next 7 days
+- 🕐 **Hourly Temperature Breakdown** for the next 48 hours
+
+[![WETHERCast](https://img.shields.io/badge/WETHERCast-View%20Repo-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/aviksarkar0204-stack/WETHERCast)
+[![WETHERCast Demo](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://weathercast-du7a9nnhmxyrxjvzgyrtvm.streamlit.app)
+
+---
+
 ## 📁 Project Structure
 ```
 WETHERWebApp/
@@ -56,7 +83,7 @@ WETHERWebApp/
 ├── README.md               # Project documentation
 │
 ├── templates/
-│   └── index.html          # Frontend HTML + JavaScript
+│   └── index.html          # Frontend HTML + JavaScript (includes WETHERCast iframe)
 │
 └── static/
     └── css/
@@ -108,6 +135,7 @@ http://127.0.0.1:7860
    - Humidity, Feels Like, Chance of Rain
    - AQI with color coding
    - Sunrise, Sunset & Local Time
+5. **Scroll down** to see the embedded WETHERCast 7-day ML forecast
 
 ---
 
@@ -162,4 +190,5 @@ This project is open source and available under the [MIT License](LICENSE).
 ## 👤 Author
 
 **Avik Sarkar**  
-GitHub: [@aviksarkar0204-stack](https://github.com/aviksarkar0204-stack)
+GitHub: [@aviksarkar0204-stack](https://github.com/aviksarkar0204-stack)  
+Hugging Face: [Avik128](https://huggingface.co/Avik128)
